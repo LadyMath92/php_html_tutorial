@@ -8,6 +8,8 @@
 			public $createdDatetime;
 
 			public function __construct($name, $description, $ingredients) {
+				$this->name = $name;
+				$this->description = $description;
 				$this->ingredients = $ingredients;
 			}
 
@@ -27,29 +29,28 @@
 
 	$recipes = array();
 
-	array_push($recipes,
-		new Recipe("Pudim", 
+	$pudimRecipe = new Recipe("Pudim", 
 			"O pudim faz-se com os dois ovos, ...", 
 			array("2 ovos", "3 colheres de açucar", "1 litro de leite")
-		)
-	);
-	array_push($recipes,
-		new Recipe("Bolo de chocolate", 
+		);
+
+	$cakeRecipe = new Recipe("Bolo de chocolate", 
 			"O Bolo de chocolate faz-se com os dois ovos, ...", 
 			array("2 ovos", "3 colheres de açucar", "1 litro de leite", "200gr chocolate de leite em pó")
-		)
-	);
+		);
 
-	$recipe = new Recipe("Pavlova", 
-			"O pudim faz-se com os dois ovos, ...", 
+	$pavlovaRecipe = new Recipe("Pavlova", 
+			"A pavlova faz-se com os dois ovos, ...", 
 			array("2 ovos", "3 colheres de açucar", "1 litro de leite", "fios de ovo")
 		);
 
-	array_push($recipes, $recipe);
+	array_push($recipes, $pudimRecipe);
+	array_push($recipes, $cakeRecipe);
+	array_push($recipes, $pavlovaRecipe);
 
-	$recipe->addIngredient("100gr de chocolate preto");
-
-	// echo print_r($recipes);
+	$pavlovaRecipe->addIngredient("100gr de chocolate preto");
+	$cakeRecipe->addIngredient("Raspa de casca de limão");
+	$pudimRecipe->addIngredient("Leite condensado");
 ?>
 <html>
 	<head>
